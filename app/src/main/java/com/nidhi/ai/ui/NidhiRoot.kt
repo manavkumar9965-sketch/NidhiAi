@@ -1,5 +1,6 @@
 package com.nidhi.ai.ui
 
+import com.nidhi.ai.platform.actions.LocalCommandRunner
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import android.Manifest
@@ -256,7 +257,7 @@ fun NidhiRoot(container: AppContainer) {
                         nickname = settingsState.settings.nickname,
                         animated = settingsState.settings.animationsEnabled,
                         onInputChange = chatVm::onInputChange,
-                        onSend = chatVm::send,
+                        onSend = { val text = chatVm.state.value.input.trim(); val reply = if (text.isEmpty()) null else LocalCommandRunner.run(activity, text); if (reply != null) chatVm.addLocalExchange(text, reply) else chatVm.send() },
                         onMic = ::onMicClick,
                         handsFree = handsFree,
                         onToggleHandsFree = ::onToggleHandsFree,

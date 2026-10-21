@@ -16,7 +16,17 @@
     </queries>
 
 <queries><package android:name="com.google.android.youtube" /><package android:name="com.facebook.katana" /></queries>
-<application
+<queries>
+        <package android:name="com.google.android.youtube" />
+        <package android:name="com.facebook.katana" />
+        <package android:name="com.whatsapp" />
+        <package android:name="com.instagram.android" />
+        <package android:name="com.android.chrome" />
+        <package android:name="com.google.android.apps.maps" />
+        <package android:name="com.spotify.music" />
+    </queries>
+
+    <application
         android:name=".NidhiApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
